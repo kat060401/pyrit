@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Udforsk PYRITs univers af smykker og inspiration." />
+    <title>Pyrit – Din stil. Dit smykke.</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <a class="logo" href="index.html">Pyrit</a>
+      <button class="menu-toggle" aria-label="Åbn menu" aria-expanded="false" aria-controls="navigation">☰</button>
+      <nav id="navigation" class="navigation" aria-label="Hovedmenu"><a href="#kollektioner">Shop</a><a href="#inspiration">Inspiration</a><a href="#om">Om Pyrit</a><a href="#kontakt">Kontakt</a></nav>
+      <div class="header-icons">
+        <button class="icon-button" id="search-toggle" aria-label="Søg" aria-expanded="false" aria-controls="search-panel">
+          <svg viewBox="0 0 24 24">
+            <circle cx="10" cy="10" r="6" />
+            <path d="m15 15 6 6" />
+          </svg>
+        </button>
+        <a class="icon-button" href="#kollektioner" aria-label="Se smykker"
+          ><svg viewBox="0 0 24 24">
+            <rect x="5" y="7" width="14" height="14" rx="1" />
+            <path d="M9 7V5a3 3 0 0 1 6 0v2" /></svg
+        ></a>
+      </div>
+      <form id="search-panel" class="search-panel" hidden>
+        <label for="search">Søg efter smykker</label><input id="search" type="search" placeholder="Fx øreringe" /><button class="button">Søg</button>
+        <p id="search-result" role="status"></p>
+      </form>
+    </header>
+    <main>
+      <section class="hero">
+        <h1>
+          <span>Din stil.</span
+          ><video class="hero-video" autoplay muted loop playsinline>
+            <source src="images/pyritvideo.mp4" type="video/mp4" /></video
+          ><span>Dit smykke.</span>
+        </h1>
+        <a class="button section-button" href="#kollektioner">Udforsk alle smykker</a>
+      </section>
+      <section class="favorites" id="favoritter">
+        <h2>Vores favoritter</h2>
+        <div class="favorite-grid">
+          <article class="favorite">
+            <img src="images/spiral.png" alt="Twist spiral med perler" />
+            <h3>Twist Spiral</h3>
+            <p>Fra 598 kr</p>
+          </article>
+          <article class="favorite favorite-middle">
+            <img src="images/halskædergod.png" alt="Facet slangekæder i guld" />
+            <h3>Facet Slangekæder</h3>
+            <p>fra 350 kr</p>
+          </article>
+          <article class="favorite">
+            <img src="images/øreringesprial.png" alt="Spiraløreringe" />
+            <h3>Spiral</h3>
+            <p>299 kr</p>
+          </article>
+        </div>
+      </section>
+      <section class="about" id="om">
+        <div class="about-visual" aria-hidden="true">
+          <img src="images/æsnke.png" alt="Bente med smykker" />
+        </div>
+        <div class="about-copy">
+          <h2>En passion for smykker</h2>
+          <p>Bag PYRIT står Bente og hendes store passion for smykker. I mere end 25 år har hun skabt et personligt smykkeunivers, hvor kvalitet, individualitet og kærligheden til de små detaljer er i centrum.</p>
+          <a class="button section-button" href="">Læs vores historie</a>
+        </div>
+      </section>
+      <section class="collections" id="kollektioner">
+        <h2>Udforsk kollektionerne</h2>
+        <div class="collection-grid">
+          <a class="collection" href=""
+            ><img src="images/øreringe.png" alt="Øreringe i guld og blå sten" />
+            <h3>Øreringe</h3></a
+          >
+          <a class="collection" href=""
+            ><img src="images/perlehalskæde.png" alt="Fin guldkæde" />
+            <h3>Halskæder</h3></a
+          >
+          <a class="collection" href=""
+            ><img src="images/amrbpmd.png" alt="Guldarmbånd" />
+            <h3>Armbånd</h3></a
+          >
+        </div>
+      </section>
+      <section class="newsletter" id="nyhedsbrev">
+        <h2>Bliv en del af Pyrit’s univers</h2>
+        <p>I Pyrit's nyhedsbrev deler jeg nye kollektioner, style-inspiration, gode tilbud og meget andet. Bliv en del af mit smykkeunivers herunder.</p>
+        <form class="newsletter-form">
+          <div class="field email-field"><label for="email">Indtast din Email</label><input type="email" id="email" placeholder="Din E-mail" required /></div>
+          <div class="field"><label for="first-name">Indtast Fornavn</label><input id="first-name" autocomplete="given-name" placeholder="Dit fornavn" required /></div>
+          <div class="field"><label for="last-name">Indtast Efternavn</label><input id="last-name" autocomplete="family-name" placeholder="Dit efternavn" required /></div>
+          <button class="button section-button" type="submit">Tilmeld nu</button>
+          <p class="form-message" role="status"></p>
+        </form>
+      </section>
+      <section class="inspiration" id="inspiration">
+        <h2>Inspirations til dig</h2>
+        <div class="inspiration-grid">
+          <img class="inspiration-green" src="images/grøn.png" alt="Spiraløreringe på grønt stof" /><img class="inspiration-blue" src="images/blåstrik.png" alt="Armbånd stylet med blå bluse" />
+          <div class="inspiration-right"><img src="images/hvid.png" alt="Øreringe på lyst stof" /><img src="images/portræt.png" alt="Model med PYRIT øreringe" /></div>
+        </div>
+        <a class="button" href="https://www.instagram.com/pyrit_cph/">Se inspiration på Instagram</a>
+      </section>
+    </main>
+    <footer id="kontakt" class="footer">
+      <div class="footer-links">
+        <a class="logo" href="#">Pyrit</a>
+        <h3>Butik Pyrit</h3>
+
+        <a href="#om">Om Pyrit</a>
+        <a href="#kontakt">Kontakt Pyrit</a>
+        <a href="https://pyrit.dk/">Retur / Ombytning</a>
+        <a href="https://pyrit.dk/">Levering</a>
+        <a href="#nyhedsbrev">Nyhedsbrev</a>
+        <a href="https://pyrit.dk/">Cookiepolitik</a>
+        <a href="https://pyrit.dk/">Privatpolitik</a>
+      </div>
+
+      <div class="footer-main">
+        <h2>Tilmeld dig vores Nyhedsbrev</h2>
+        <p>Få nyheder, inspiration og særlige fordele direkte i din indbakke fra Pyrit</p>
+
+        <form class="footer-form" id="nyhedsbrev">
+          <label for="footer-email">Indtast din Email</label>
+
+          <div class="footer-input">
+            <input id="footer-email" type="email" placeholder="Din Email" required />
+            <button class="button">Tilmeld nu</button>
+          </div>
+
+          <p class="form-message" role="status"></p>
+        </form>
+
+        <h3>Følg med på Sociale Medier</h3>
+
+        <div class="footer-details">
+          <div class="socials">
+            <a href="https://www.instagram.com/pyrit_cph/">
+              <img src="images/Frame.png" alt="Instagram" />
+              @Pyrit_cph
+            </a>
+
+            <a href="https://www.facebook.com/ButikPyrit/">
+              <img src="images/Frame-2.png" alt="Facebook" />
+              @Butik_Pyrit
+            </a>
+          </div>
+
+          <address>
+            <div class="footer-info">
+              <img src="images/Frame-1.png" alt="" />
+              <span>Niels Hemmingsens Gade 20, 1153 København</span>
+            </div>
+
+            <div class="footer-info">
+              <img src="images/Frame-3.png" alt="" />
+              <span>
+                Man - lør: 11–18<br />
+                Søn: Lukket
+              </span>
+            </div>
+          </address>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
