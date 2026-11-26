@@ -672,42 +672,88 @@ input::placeholder {
   filter: brightness(0) saturate(100%) invert(79%) sepia(62%) saturate(496%) hue-rotate(351deg) brightness(96%) contrast(88%);
 }
 /* =====================================
-   10. MOBIL OG TABLET
+   10. MOBIL OG TABLET – PYRIT
    ===================================== */
 
 @media (max-width: 650px) {
+  /* =====================================
+     GRUNDLÆGGENDE STYLING
+     ===================================== */
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
   body {
     font-size: 15px;
   }
 
   h2 {
-    font-size: 29px;
+    font-size: clamp(23px, 6.4vw, 32px);
+    line-height: 1.25;
+  }
+
+  img {
+    max-width: 100%;
   }
 
   .button {
-    padding: 12px 19px;
-    font-size: 12px;
+    min-height: 44px;
+    padding: 13px 30px;
+    font-size: 13px;
+    font-weight: 700;
   }
 
-  /* HEADER */
+  /* =====================================
+     HEADER
+     ===================================== */
 
   .header {
-    padding: 20px;
-    grid-template-columns: 1fr auto auto;
-    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 18px 6%;
+    background: var(--white);
+  }
+
+  .header .logo {
+    font-size: 30px;
+    margin-right: auto;
+    order: 1;
+  }
+
+  .header-icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    order: 2;
+  }
+
+  .icon-button {
+    width: 32px;
+    height: 44px;
+  }
+
+  .icon-button svg {
+    width: 23px;
+    height: 23px;
   }
 
   .menu-toggle {
     display: block;
-    color: var(--wine);
+    order: 3;
     background: none;
-    border: 0;
+    border: none;
+    color: var(--wine);
     font-size: 23px;
+    width: 32px;
+    height: 44px;
     padding: 0;
-  }
-
-  .header-icons {
-    gap: 18px;
   }
 
   .navigation {
@@ -716,241 +762,583 @@ input::placeholder {
     top: 100%;
     left: 0;
     right: 0;
-    background: white;
-    padding: 24px;
+    background: var(--white);
+    padding: 30px 6%;
     flex-direction: column;
     gap: 24px;
-    font-size: 16px;
+    font-size: 17px;
+    z-index: 20;
   }
 
-  .navigation.is-open {
+  .navigation.is-open,
+  .menu-toggle[aria-expanded="true"] + .navigation {
     display: flex;
   }
 
-  /* HERO MED VIDEO */
+  /* =====================================
+     SØGEFELT
+     ===================================== */
+
+  .search-panel {
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    width: 90%;
+    padding: 20px;
+    background: var(--white);
+    z-index: 30;
+  }
+
+  .search-panel input {
+    width: 100%;
+    margin: 12px 0;
+  }
+
+  /* =====================================
+     HERO MED VIDEO
+     ===================================== */
 
   .hero {
-    min-height: 420px;
-    padding: 35px 15px 60px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    padding: 40px 20px 75px;
+    background: var(--white);
   }
 
   .hero h1 {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 14px;
-    font-size: 39px;
+    width: 100%;
+    gap: 20px;
+    font-size: clamp(36px, 10.5vw, 54px);
+    line-height: 1.1;
   }
 
   .hero h1 span {
-    white-space: normal;
     text-align: center;
+    white-space: nowrap;
   }
 
   .hero-video {
     display: block;
-    order: -1;
-    width: 180px;
-    max-width: 100%;
+    order: 0;
+    width: 65%;
+    max-width: 270px;
     height: auto;
-    aspect-ratio: auto;
+    margin: 0 auto;
     object-fit: contain;
-    margin: 0 calc(50% - 90px) 15px;
   }
 
-  /* FAVORITTER */
+  .hero .section-button {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    padding: 15px 35px;
+    z-index: 3;
+  }
+
+  /* =====================================
+     FAVORITTER
+     ===================================== */
 
   .favorites {
-    padding: 65px 18px 50px;
+    background: var(--cream);
+    min-height: 0;
+    padding: 65px 6% 40px;
+    text-align: center;
   }
 
   .favorite-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px 12px;
-    margin-top: 35px;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 50px;
+    margin: 30px auto 0;
+    max-width: 100%;
+  }
+
+  .favorite {
+    width: 100%;
+    margin: 0;
+    text-align: center;
   }
 
   .favorite-middle {
-    order: 3;
-    grid-column: 1 / -1;
+    order: 0;
+    grid-column: auto;
     margin: 0;
   }
 
-  .favorite img,
-  .favorite:first-child img,
-  .favorite:last-child img {
-    height: 130px;
+  .favorite img {
+    width: 75%;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  .favorite:first-child img {
+    width: 75%;
+    height: 48vw;
+    max-height: 290px;
+    margin: 0 auto;
   }
 
   .favorite-middle img {
-    height: 220px;
+    width: 65%;
+    height: 65vw;
+    max-height: 360px;
+    margin: 0 auto;
+  }
+
+  .favorite:last-child img {
+    width: 70%;
+    height: 33vw;
+    max-height: 210px;
+    margin: 0 auto;
   }
 
   .favorite h3 {
-    font-size: 15px;
-    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 18px;
   }
 
   .favorite p {
-    font-size: 19px;
+    font-size: 22px;
+    margin-top: 5px;
   }
 
-  /* OM PYRIT */
+  /* =====================================
+     OM PYRIT
+     ===================================== */
 
   .about {
+    position: relative;
     display: block;
-    min-height: auto;
+    height: auto;
+    min-height: 0;
+    background: var(--wine);
+    color: var(--cream);
+    overflow: visible;
+    padding-bottom: 24vw;
+    z-index: 2;
   }
 
   .about-copy {
-    padding: 45px 24px 60px;
+    position: relative;
+    padding: 36px 6% 35px;
+    text-align: center;
   }
 
   .about-copy h2 {
+    font-size: clamp(22px, 6vw, 30px);
     white-space: normal;
+    margin: 0;
   }
 
   .about-copy p {
     max-width: 100%;
     font-size: 15px;
-    margin-top: 20px;
+    line-height: 1.5;
+    text-align: left;
+    margin: 28px 0 30px;
   }
 
   .about-copy .section-button {
-    left: 50%;
+    position: static;
+    transform: none;
+    margin: 0 auto;
   }
 
-  /* KOLLEKTIONER */
+  .about-visual {
+    position: absolute;
+    width: 62%;
+    height: auto;
+    left: 50%;
+    bottom: -41vw;
+    transform: translateX(-50%);
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .about img {
+    position: static;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    margin: 0;
+    transform: none;
+    object-fit: contain;
+  }
+
+  /* =====================================
+     KOLLEKTIONER
+     ===================================== */
 
   .collections {
-    padding: 65px 18px 50px;
+    position: relative;
+    background: var(--blue);
+    padding: calc(41vw + 48px) 12% 100px;
+    min-height: 0;
+    text-align: center;
+  }
+
+  .collections h2 {
+    font-size: clamp(22px, 6vw, 30px);
+    white-space: normal;
   }
 
   .collection-grid {
-    gap: 6px;
-    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    max-width: 100%;
+    margin: 65px auto 0;
   }
 
   .collection {
-    padding: 15px 4px 12px;
+    width: 100%;
+    aspect-ratio: 142 / 162;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 20px 22px;
+    background: var(--cream);
+  }
+
+  .collection img {
+    width: 85%;
+    height: 78%;
+    min-height: 0;
+    object-fit: contain;
   }
 
   .collection h3 {
-    font-size: 13px;
+    font-size: 19px;
+    font-weight: 700;
+    margin-top: 12px;
   }
 
-  /* NYHEDSBREV */
+  /* =====================================
+     NYHEDSBREV
+     ===================================== */
 
   .newsletter {
-    padding: 45px 20px 60px;
+    position: relative;
+    min-height: 0;
+    background: var(--white);
+    padding: 40px 6% 95px;
+  }
+
+  .newsletter h2 {
+    font-size: clamp(22px, 6vw, 30px);
+    text-align: center;
   }
 
   .newsletter > p {
     max-width: 100%;
     font-size: 14px;
-    margin-top: 12px;
+    line-height: 1.5;
+    margin: 20px 0 0;
   }
 
   .newsletter-form {
-    width: 100%;
+    display: grid;
     grid-template-columns: 1fr;
-    gap: 16px;
-    margin-top: 25px;
+    width: 100%;
+    gap: 24px;
+    margin: 40px auto 0;
   }
 
   .field {
-    gap: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .email-field {
+    grid-column: auto;
+  }
+
+  .field label {
+    font-size: 18px;
+    font-weight: 600;
   }
 
   input {
-    padding: 12px;
-    font-size: 14px;
+    width: 100%;
+    min-width: 0;
+    padding: 18px 20px;
+    font-size: 16px;
+    border: 1px solid var(--wine);
+    border-radius: 0;
   }
 
-  /* INSPIRATION */
+  .newsletter .section-button {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    padding: 15px 40px;
+    z-index: 3;
+  }
+
+  .form-message {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* =====================================
+     INSPIRATION
+     ===================================== */
 
   .inspiration {
-    padding: 60px 18px 100px;
+    position: relative;
+    background: var(--cream);
+    padding: 95px 6% 55px;
+    min-height: 0;
+    text-align: center;
   }
 
   .inspiration h2 {
     position: static;
-    margin-bottom: 28px;
+    margin: 0 0 45px;
   }
 
   .inspiration-grid {
-    grid-template-columns: 29% 33% 28%;
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+    align-items: start;
+    justify-content: center;
+    gap: 20px 24px;
+    max-width: 100%;
+    margin: 0 auto;
     padding: 0;
   }
 
+  .inspiration-right {
+    display: contents;
+  }
+
   .inspiration-green {
-    margin-top: 40px;
+    grid-column: 1;
+    grid-row: 1;
+    width: 85%;
+    margin: 0 auto;
+    transform: none;
   }
 
   .inspiration-blue {
-    margin-top: 20px;
+    grid-column: 2;
+    grid-row: 1;
+    width: 95%;
+    margin: 35px auto 0;
+    transform: none;
   }
 
-  .inspiration-right {
-    gap: 10px;
+  .inspiration img[src="images/grøn.png"] {
+    transform: none;
+  }
+
+  .inspiration img[src="images/portræt.png"] {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    transform: none;
+  }
+
+  .inspiration img[src="images/hvid.png"] {
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    height: auto;
+    margin: 25px 0 0;
+    transform: none;
   }
 
   .inspiration .button {
-    bottom: 30px;
+    position: static;
+    transform: none;
+    margin: 45px auto 0;
+    padding: 15px 25px;
+    white-space: normal;
   }
 
-  /* FOOTER */
+  /* =====================================
+     FOOTER
+     ===================================== */
 
   .footer {
+    display: grid;
     grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 35px 20px;
+    gap: 35px;
+    background: var(--wine);
+    color: var(--cream);
+    padding: 20px 8% 30px;
     font-size: 14px;
   }
 
   .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 5px;
   }
 
-  .footer-main > p,
-  .footer-form {
-    max-width: 100%;
+  .footer .logo {
+    display: block;
+    align-self: center;
+    font-size: 60px;
+    color: var(--gold);
+    margin: 0 0 12px;
+  }
+
+  .footer-links h3 {
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .footer-links > a:not(.logo) {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .footer-main {
+    min-width: 0;
+  }
+
+  .footer-main h2 {
+    color: var(--gold);
+    font-size: clamp(21px, 5.8vw, 28px);
+    white-space: normal;
   }
 
   .footer-main > p {
-    margin: 16px 0;
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 15px 0;
+  }
+
+  .footer-form {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .footer-form label {
+    font-size: 16px;
+    color: var(--gold);
+  }
+
+  .footer-input {
+    display: flex;
+    width: 100%;
+    margin: 10px 0 20px;
   }
 
   .footer-input input {
-    padding: 12px;
+    flex: 1;
+    min-width: 0;
+    padding: 13px 12px;
+    background: var(--cream);
+    font-size: 16px;
   }
 
   .footer-input .button {
-    padding: 10px;
+    flex: 0 0 40%;
+    padding: 12px 8px;
+    font-size: 12px;
   }
 
   .footer-main h3 {
-    margin: 18px 0;
+    font-size: 19px;
+    font-family: var(--heading);
+    color: var(--gold);
+    margin: 30px 0 20px;
   }
+
+  /* =====================================
+     FOOTER – IKONER OG KONTAKT
+     ===================================== */
 
   .footer-details {
-    gap: 15px;
-  }
-}
-
-/* =====================================
-   11. TILGÆNGELIGHED
-   ===================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1.15fr);
+    align-items: start;
+    gap: 12px;
   }
 
-  *,
-  *::before,
-  *::after {
-    transition: none !important;
+  .socials,
+  .footer-details address {
+    display: contents;
+  }
+
+  .socials a:first-child {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .socials a:last-child {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .footer-info:first-child {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .footer-info:last-child {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .socials a,
+  .footer-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+    font-size: clamp(11px, 3.1vw, 14px);
+    line-height: 1.5;
+    font-style: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .socials a img,
+  .footer-info img {
+    width: 27px;
+    height: 27px;
+    object-fit: contain;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .footer-info span {
+    min-width: 0;
+  }
+
+  .socials a:hover,
+  .footer-info:hover {
+    color: var(--gold);
   }
 }
